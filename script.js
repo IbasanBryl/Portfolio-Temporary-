@@ -1,239 +1,106 @@
-const track = document.getElementById("ticker-track");
-const yearNodes = document.querySelectorAll("[data-year]");
-const revealNodes = document.querySelectorAll("[data-reveal]");
-const cursorBlob = document.querySelector(".cursor-blob");
-const canvas = document.getElementById("particle-canvas");
-const context = canvas.getContext("2d");
+const themeToggle = document.getElementById("themeToggle");
+const savedTheme = localStorage.getItem("theme");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-const skills = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "HTML5",
-  "TailwindCSS",
-  "Python",
-  "Node.js",
-  "Three.js",
-  "GSAP",
-  "Figma",
-];
+function applyTheme(isDark) {
+  document.body.classList.toggle("light", !isDark);
 
-function buildTicker() {
-  const row = skills
-    .map((skill) => `<span>${skill}</span><span class="ticker-dot">-</span>`)
-    .join("");
-  track.innerHTML = Array.from({ length: 6 }, () => row).join("");
-}
-
-function setYear() {
-  const currentYear = new Date().getFullYear();
-  yearNodes.forEach((node) => {
-    node.textContent = currentYear;
-  });
-}
-
-function setupReveal() {
-  if (!("IntersectionObserver" in window)) {
-    revealNodes.forEach((node) => node.classList.add("is-visible"));
+  if (!themeToggle) {
     return;
   }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.18 }
-  );
+  themeToggle.setAttribute("aria-pressed", String(!isDark));
+  themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+}
 
-  revealNodes.forEach((node, index) => {
-    if (node.classList.contains("project-card")) {
-      node.style.setProperty("--reveal-delay", `${index * 80}ms`);
-    }
-    observer.observe(node);
+applyTheme(savedTheme ? savedTheme === "dark" : prefersDark.matches);
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const isLight = document.body.classList.contains("light");
+    applyTheme(isLight);
+    localStorage.setItem("theme", isLight ? "dark" : "light");
   });
 }
 
-function setupBlob() {
-  if (!cursorBlob) {
-    return;
+prefersDark.addEventListener("change", (event) => {
+  if (!localStorage.getItem("theme")) {
+    applyTheme(event.matches);
   }
+});
 
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const target = {
-    x: window.innerWidth * 0.5,
-    y: window.innerHeight * 0.4,
-  };
+const revealElements = document.querySelectorAll(".reveal");
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.08 }
+);
 
-  const current = {
-    x: target.x,
-    y: target.y,
-  };
+revealElements.forEach((element, index) => {
+  element.style.transitionDelay = `${(index % 4) * 70}ms`;
+  revealObserver.observe(element);
+});
 
-  window.addEventListener("pointermove", (event) => {
-    target.x = event.clientX;
-    target.y = event.clientY;
+const portraitFrame = document.getElementById("portraitFrame");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+if (portraitFrame && !reduceMotion.matches) {
+  portraitFrame.addEventListener("mousemove", (event) => {
+    const rect = portraitFrame.getBoundingClientRect();
+    const offsetX = (event.clientX - rect.left) / rect.width - 0.5;
+    const offsetY = (event.clientY - rect.top) / rect.height - 0.5;
+    const rotateY = offsetX * 7;
+    const rotateX = offsetY * -7;
+    const moveX = offsetX * 10;
+    const moveY = offsetY * 10;
+
+    portraitFrame.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(${moveX}px, ${moveY * -0.3}px, 0)`;
   });
 
-  window.addEventListener("pointerleave", () => {
-    target.x = window.innerWidth * 0.5;
-    target.y = window.innerHeight * 0.4;
+  portraitFrame.addEventListener("mouseleave", () => {
+    portraitFrame.style.transform = "";
   });
-
-  if (reducedMotion) {
-    cursorBlob.style.transform = "translate(-50%, -50%)";
-    return;
-  }
-
-  function animateBlob() {
-    current.x += (target.x - current.x) * 0.08;
-    current.y += (target.y - current.y) * 0.08;
-    cursorBlob.style.transform = `translate(${current.x - window.innerWidth * 0.5}px, ${
-      current.y - window.innerHeight * 0.5
-    }px) translate(-50%, -50%)`;
-    requestAnimationFrame(animateBlob);
-  }
-
-  animateBlob();
 }
 
-function setupCanvas() {
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const particles = [];
-  const pointer = {
-    x: window.innerWidth * 0.5,
-    y: window.innerHeight * 0.4,
-  };
+const contactForm = document.getElementById("contactForm");
+const formMsg = document.getElementById("formMsg");
 
-  function resize() {
-    const ratio = window.devicePixelRatio || 1;
-    canvas.width = Math.floor(window.innerWidth * ratio);
-    canvas.height = Math.floor(window.innerHeight * ratio);
-    canvas.style.width = `${window.innerWidth}px`;
-    canvas.style.height = `${window.innerHeight}px`;
-    context.setTransform(ratio, 0, 0, ratio, 0, 0);
-  }
+if (contactForm && formMsg) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    formMsg.textContent = "Message sent. I will get back to you soon.";
+    formMsg.style.color = "var(--accent)";
+    contactForm.reset();
+    window.setTimeout(() => {
+      formMsg.textContent = "";
+    }, 5000);
+  });
+}
 
-  function createParticle(cluster) {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    const topCluster = cluster === "top";
-    return {
-      x:
-        (topCluster ? width * 0.52 : width * 0.27) +
-        (Math.random() - 0.5) * (topCluster ? 240 : 220),
-      y:
-        (topCluster ? height * 0.25 : height * 0.63) +
-        (Math.random() - 0.5) * (topCluster ? 120 : 120),
-      vx: (Math.random() - 0.5) * 0.22,
-      vy: (Math.random() - 0.5) * 0.22,
-      radius: 0.6 + Math.random() * 1.9,
-      cluster,
-      phase: Math.random() * Math.PI * 2,
-    };
-  }
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a");
 
-  function seed() {
-    particles.length = 0;
-    const count = reducedMotion ? 70 : 180;
-    for (let index = 0; index < count; index += 1) {
-      particles.push(createParticle(index % 2 === 0 ? "top" : "left"));
-    }
-  }
-
-  function wrapParticle(particle) {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    if (particle.x < -80) particle.x = width + 80;
-    if (particle.x > width + 80) particle.x = -80;
-    if (particle.y < -80) particle.y = height + 80;
-    if (particle.y > height + 80) particle.y = -80;
-  }
-
-  function draw() {
-    context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    context.globalCompositeOperation = "lighter";
-
-    for (let index = 0; index < particles.length; index += 1) {
-      const particle = particles[index];
-      const dx = pointer.x - particle.x;
-      const dy = pointer.y - particle.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      const influence = Math.max(0, 1 - distance / 700);
-
-      particle.phase += 0.01;
-      particle.x += particle.vx + dx * 0.00001 * influence;
-      particle.y += particle.vy + dy * 0.00001 * influence;
-
-      if (!reducedMotion) {
-        particle.x += Math.sin(particle.phase) * 0.18;
-        particle.y += Math.cos(particle.phase * 0.9) * 0.14;
+const navObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
       }
 
-      wrapParticle(particle);
-
-      const alpha = reducedMotion ? 0.12 : 0.1 + influence * 0.35;
-      context.beginPath();
-      context.fillStyle =
-        particle.cluster === "top"
-          ? `rgba(181, 125, 255, ${alpha})`
-          : `rgba(39, 42, 58, ${alpha})`;
-      context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-      context.fill();
-    }
-
-    const connectionLimit = 118;
-    context.lineWidth = 1;
-    for (let a = 0; a < particles.length; a += 1) {
-      for (let b = a + 1; b < particles.length; b += 1) {
-        const first = particles[a];
-        const second = particles[b];
-        const dx = first.x - second.x;
-        const dy = first.y - second.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < connectionLimit) {
-          const opacity = (1 - distance / connectionLimit) * 0.12;
-          context.strokeStyle = `rgba(181, 125, 255, ${opacity})`;
-          context.beginPath();
-          context.moveTo(first.x, first.y);
-          context.lineTo(second.x, second.y);
-          context.stroke();
-        }
+      navLinks.forEach((link) => link.classList.remove("active"));
+      const activeLink = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+      if (activeLink) {
+        activeLink.classList.add("active");
       }
-    }
+    });
+  },
+  { rootMargin: "-40% 0px -55% 0px" }
+);
 
-    context.globalCompositeOperation = "source-over";
-
-    if (!reducedMotion) {
-      requestAnimationFrame(draw);
-    }
-  }
-
-  window.addEventListener("pointermove", (event) => {
-    pointer.x = event.clientX;
-    pointer.y = event.clientY;
-  });
-
-  window.addEventListener("resize", () => {
-    resize();
-    seed();
-    if (reducedMotion) {
-      draw();
-    }
-  });
-
-  resize();
-  seed();
-
-  draw();
-}
-
-buildTicker();
-setYear();
-setupReveal();
-setupBlob();
-setupCanvas();
+sections.forEach((section) => navObserver.observe(section));
