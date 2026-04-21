@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bryl Portfolio - a dark cinematic portfolio inspired by neon TikTok web showcases."
+    />
+    <meta name="theme-color" content="#08050f" />
+    <title>Bryl | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <div class="cursor-blob" aria-hidden="true"></div>
+    <div class="noise-layer" aria-hidden="true"></div>
+
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="Bryl portfolio home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          Bryl
+        </a>
+
+        <nav class="topnav" aria-label="Primary">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="topbar-cta" href="#contact">Open for freelance</a>
+      </header>
+
+      <main>
+        <section class="hero" id="home">
+          <div class="hero-orb hero-orb-a" aria-hidden="true"></div>
+          <div class="hero-orb hero-orb-b" aria-hidden="true"></div>
+          <div class="hero-orb hero-orb-c" aria-hidden="true"></div>
+
+          <div class="hero-copy" data-reveal>
+            <div class="status-pill">
+              <span aria-hidden="true"></span>
+              Open to Learn & Collaborate
+            </div>
+
+            <p class="eyebrow">STUDENT - WEB DEVELOPER - 2026 PORTFOLIO</p>
+            <h1>Building moody portfolio sites with cinematic glow.</h1>
+            <p class="lede">
+              Inspired by the TikTok reference, this version leans into a dark
+              stage, purple light, drifting particles, and a layout you can
+              actually customize.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#work">See selected work</a>
+              <a class="btn btn-secondary" href="#contact">Get in touch</a>
+            </div>
+
+            <dl class="metrics" aria-label="Portfolio highlights">
+              <div class="metric">
+                <dt>Focus</dt>
+                <dd>Front-end + motion</dd>
+              </div>
+              <div class="metric">
+                <dt>Style</dt>
+                <dd>Dark, clean, neon</dd>
+              </div>
+              <div class="metric">
+                <dt>Based in</dt>
+                <dd>Perth, AU</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="scroll-hint" aria-hidden="true">
+            <span></span>
+            Scroll
+          </div>
+        </section>
+
+        <section class="ticker" aria-label="Core stack">
+          <div class="ticker-track" id="ticker-track"></div>
+        </section>
+
+        <section class="section" id="work">
+          <div class="section-heading" data-reveal>
+            <p class="section-label">Selected Work</p>
+            <h2>Experiences that feel sharp, moody, and easy to browse.</h2>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card project-card-noir" data-reveal>
+              <div class="project-visual">
+                <div class="visual-orb"></div>
+                <div class="visual-bars">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="visual-chip-row">
+                  <span>Landing page</span>
+                  <span>Motion</span>
+                </div>
+              </div>
+              <div class="project-body">
+                <p class="project-index">01</p>
+                <h3>Noir Studio</h3>
+                <p>
+                  A full-bleed studio page with editorial type, glass panels,
+                  and a strong light-dark rhythm.
+                </p>
+                <ul class="tag-list" aria-label="Project tags">
+                  <li>Brand site</li>
+                  <li>UI system</li>
+                  <li>React-ready</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project-card project-card-pulse" data-reveal>
+              <div class="project-visual">
+                <div class="visual-orb"></div>
+                <div class="visual-stats">
+                  <div>
+                    <strong>78K</strong>
+                    <span>views</span>
+                  </div>
+                  <div>
+                    <strong>4.9%</strong>
+                    <span>CTR</span>
+                  </div>
+                </div>
+                <div class="visual-chip-row">
+                  <span>Creator kit</span>
+                  <span>Analytics</span>
+                </div>
+              </div>
+              <div class="project-body">
+                <p class="project-index">02</p>
+                <h3>Pulsefolio</h3>
+                <p>
+                  A creator media kit concept with metric cards, conversion
+                  blocks, and a premium dark palette.
+                </p>
+                <ul class="tag-list" aria-label="Project tags">
+                  <li>Case study</li>
+                  <li>Dashboard</li>
+                  <li>Tailwind-inspired</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project-card project-card-orbit" data-reveal>
+              <div class="project-visual">
+                <div class="visual-orb"></div>
+                <div class="visual-grid">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="visual-chip-row">
+                  <span>Portfolio</span>
+                  <span>Particles</span>
+                </div>
+              </div>
+              <div class="project-body">
+                <p class="project-index">03</p>
+                <h3>Orbit UI</h3>
+                <p>
+                  An interactive concept page with drifting dots, layered glow,
+                  and a simple content hierarchy.
+                </p>
+                <ul class="tag-list" aria-label="Project tags">
+                  <li>Motion</li>
+                  <li>Responsive</li>
+                  <li>Clean copy</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section" id="about">
+          <div class="about-card" data-reveal>
+            <p class="section-label">About</p>
+            <h2>I like work that feels expensive without feeling noisy.</h2>
+            <p>
+              The goal is always the same: make the first impression feel
+              cinematic, keep the content easy to read, and use motion only
+              where it helps the story.
+            </p>
+
+            <div class="timeline">
+              <div class="timeline-item">
+                <span>01</span>
+                <div>
+                  <h3>Mood and structure</h3>
+                  <p>Dark palette, clear hierarchy, intentional spacing.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span>02</span>
+                <div>
+                  <h3>Motion and depth</h3>
+                  <p>Particles, glow, hover lift, and subtle reveal timing.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span>03</span>
+                <div>
+                  <h3>Responsive finish</h3>
+                  <p>Everything collapses cleanly for mobile and tablets.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-card" data-reveal>
+            <p class="section-label">Stack</p>
+            <h2>Tools I would center on a portfolio like this.</h2>
+            <div class="stack-grid">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>React</span>
+              <span>Tailwind</span>
+              <span>GSAP</span>
+              <span>Three.js</span>
+              <span>Figma</span>
+            </div>
+            <div class="status-note">
+              <span></span>
+              Designed to be easy to edit, swap, and grow into a full brand
+              site.
+            </div>
+          </div>
+        </section>
+
+        <section class="section contact-section" id="contact">
+          <div class="contact-card" data-reveal>
+            <p class="section-label">Contact</p>
+            <h2>Want this vibe for your own portfolio?</h2>
+            <p>
+              I can turn this into a personal site, add your real projects, or
+              reshape it into a React build later.
+            </p>
+
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="mailto:hello@bryl.dev">hello@bryl.dev</a>
+              <a class="btn btn-secondary" href="#home">Back to top</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Built for Bryl</p>
+        <p><span data-year></span></p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
