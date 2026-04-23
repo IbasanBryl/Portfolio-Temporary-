@@ -1,34 +1,3 @@
-const themeToggle = document.getElementById("themeToggle");
-const savedTheme = localStorage.getItem("theme");
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-function applyTheme(isDark) {
-  document.body.classList.toggle("light", !isDark);
-
-  if (!themeToggle) {
-    return;
-  }
-
-  themeToggle.setAttribute("aria-pressed", String(!isDark));
-  themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
-}
-
-applyTheme(savedTheme ? savedTheme === "dark" : prefersDark.matches);
-
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    const isLight = document.body.classList.contains("light");
-    applyTheme(isLight);
-    localStorage.setItem("theme", isLight ? "dark" : "light");
-  });
-}
-
-prefersDark.addEventListener("change", (event) => {
-  if (!localStorage.getItem("theme")) {
-    applyTheme(event.matches);
-  }
-});
-
 const revealElements = document.querySelectorAll(".reveal");
 const revealObserver = new IntersectionObserver(
   (entries) => {
