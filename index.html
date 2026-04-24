@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Bryl Portfolio - a black and silver student developer portfolio with a cinematic visual identity."
+      content="Bryl Portfolio - an experimental editorial front-end portfolio designed to feel memorable and internship-ready."
     />
     <meta name="theme-color" content="#050505" />
     <title>Bryl Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@400;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -22,93 +22,148 @@
       <nav class="nav">
         <a href="#home" class="nav-logo">
           <span class="nav-logo-mark" aria-hidden="true"></span>
-          Bryl
+          Bryl / Portfolio File
         </a>
 
-        <ul class="nav-links">
-          <li><a href="#home">Index</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navLinks"
+        >
+          Menu
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" data-nav-link>Index</a></li>
+          <li><a href="#about" data-nav-link>Profile</a></li>
+          <li><a href="#projects" data-nav-link>Works</a></li>
+          <li><a href="#skills" data-nav-link>Arsenal</a></li>
+          <li><a href="#contact" data-nav-link>Contact</a></li>
         </ul>
+
+        <a href="#contact" class="nav-cta">Open for internships</a>
       </nav>
     </header>
 
     <main>
-      <section id="home" class="section hero reveal">
-        <div class="section-label">/ 00 - Index</div>
+      <section id="home" class="section hero">
+        <div class="section-label">/ 01 - Opening Frame</div>
 
         <div class="hero-shell">
-          <div class="hero-copy">
-            <p class="hero-kicker">Bryl / Front-end student developer / Perth, Australia</p>
+          <div class="hero-copy reveal">
+            <p class="hero-kicker">
+              Bryl / Front-end student developer / Perth, Australia / experimental visuals with professional front-end discipline
+            </p>
 
             <h1 class="hero-title">
-              <span>Bryl</span>
-              <em>Front-end student developer shaping sharp, responsive black-and-silver interfaces.</em>
+              <span>Experimental eye.</span>
+              <span>Professional build.</span>
+              <em>Front-end work with stronger character, cleaner structure, and a more internship-ready presentation.</em>
             </h1>
 
             <p class="hero-lead">
-              I build websites and interface practice projects with a focus on
-              structure, responsiveness, and visual precision. This version of
-              my portfolio leans into a darker, more personal style so the work
-              feels cleaner, stronger, and less like a default template.
+              I build portfolio pages, landing pages, and interface studies
+              with a focus on visual structure and responsiveness. I want the
+              work to feel more expressive than a standard developer template,
+              but still clear enough for recruiters, teams, and internship
+              opportunities to understand what I can contribute.
             </p>
 
             <div class="hero-actions">
-              <a href="#projects" class="cta-btn">View projects</a>
-              <a href="#about" class="ghost-btn">About me</a>
+              <a href="#projects" class="cta-btn">View case studies</a>
+              <a href="#about" class="ghost-btn">Internship profile</a>
             </div>
 
             <div class="hero-band reveal">
-              <span>Black / Silver direction</span>
-              <span>Responsive front-end build</span>
-              <span>Student-made interface system</span>
+              <span>Experimental direction</span>
+              <span>Responsive front-end craft</span>
+              <span>Internship-ready presentation</span>
             </div>
 
             <div class="hero-notes">
               <article class="hero-note reveal">
-                <span>Current focus</span>
-                <strong>Responsive layouts, cleaner spacing, and stronger visual identity</strong>
+                <span>Seeking</span>
+                <strong>Internships and junior front-end opportunities where I can keep improving fast.</strong>
               </article>
+
               <article class="hero-note reveal">
-                <span>Stack</span>
-                <strong>HTML, CSS, JavaScript, React, and practical UI building</strong>
+                <span>Strength</span>
+                <strong>Combining visual polish with readable layouts and responsive behavior.</strong>
               </article>
+
               <article class="hero-note reveal">
-                <span>Direction</span>
-                <strong>Making every section feel more polished, personal, and memorable</strong>
+                <span>Working style</span>
+                <strong>Curious, iterative, and focused on making each rebuild clearer than the last.</strong>
+              </article>
+            </div>
+
+            <div class="hero-strip reveal">
+              <article class="strip-cell">
+                <span>Looking for</span>
+                <strong>Internships / junior front-end roles</strong>
+              </article>
+
+              <article class="strip-cell">
+                <span>Best at</span>
+                <strong>Responsive layouts and visual hierarchy</strong>
+              </article>
+
+              <article class="strip-cell">
+                <span>Learning now</span>
+                <strong>Case-study storytelling and stronger UI systems</strong>
+              </article>
+
+              <article class="strip-cell">
+                <span>Available</span>
+                <strong>For collaborations and growth-focused teams</strong>
               </article>
             </div>
           </div>
 
           <aside class="hero-panel reveal">
             <div class="panel-head">
-              <span>Interface Chamber</span>
-              <span>Black Silver Edition</span>
+              <span>Studio Board</span>
+              <span>Internship File</span>
             </div>
 
             <div class="panel-stage">
-              <div class="stage-orb" aria-hidden="true"></div>
+              <div class="stage-wash" aria-hidden="true"></div>
               <div class="stage-grid" aria-hidden="true"></div>
-              <div class="stage-scan" aria-hidden="true"></div>
-              <div class="stage-beam" aria-hidden="true"></div>
+              <div class="stage-dial stage-dial-a" aria-hidden="true"></div>
+              <div class="stage-dial stage-dial-b" aria-hidden="true"></div>
+              <div class="stage-route" aria-hidden="true"></div>
               <div class="stage-badge" aria-hidden="true">B</div>
 
               <article class="stage-note stage-note-a">
-                <p>Building now</p>
-                <strong>Portfolio pages, landing pages, and cleaner front-end systems</strong>
+                <p>Visual instinct</p>
+                <strong>Art-directed layouts, stronger contrast, and interfaces that feel less interchangeable.</strong>
               </article>
 
               <article class="stage-note stage-note-b">
-                <p>Improving</p>
-                <strong>Typography, spacing, mobile layout, and project presentation</strong>
+                <p>Professional read</p>
+                <strong>Clearer project framing, better scanning, and a presentation that works for applications.</strong>
               </article>
 
               <div class="stage-footer">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
+                <span>Visual Systems</span>
+                <span>Case Study Framing</span>
+                <span>Front-end Craft</span>
+              </div>
+            </div>
+
+            <div class="panel-ledger">
+              <div>
+                <span>Seeking</span>
+                <strong>Internships and entry-level front-end roles</strong>
+              </div>
+              <div>
+                <span>Bring</span>
+                <strong>Responsive UI care and a strong visual point of view</strong>
+              </div>
+              <div>
+                <span>Building</span>
+                <strong>Projects that read creatively but still feel team-ready</strong>
               </div>
             </div>
           </aside>
@@ -116,132 +171,86 @@
       </section>
 
       <section id="about" class="section about">
-        <div class="section-label">/ 01 - About</div>
+        <div class="section-label">/ 02 - Profile</div>
+
+        <div class="section-head reveal">
+          <h2 class="section-title">An artsier visual approach, backed by practical front-end discipline.</h2>
+          <p class="section-intro">
+            I like interfaces with some edge to them, but I still want the
+            work to feel usable, readable, and credible to people hiring for
+            internships and junior roles.
+          </p>
+        </div>
 
         <div class="about-layout">
           <div class="about-visual reveal">
             <div class="visual-frame" id="portraitFrame">
               <div class="visual-core" aria-hidden="true">
-                <div class="visual-ring visual-ring-a"></div>
-                <div class="visual-ring visual-ring-b"></div>
-                <div class="visual-mesh"></div>
-                <div class="visual-monogram">Bryl</div>
+                <div class="visual-arc visual-arc-a"></div>
+                <div class="visual-arc visual-arc-b"></div>
+                <div class="visual-grid"></div>
+                <div class="visual-monogram">B</div>
+                <div class="visual-marker visual-marker-a"></div>
+                <div class="visual-marker visual-marker-b"></div>
               </div>
-              <div class="visual-chip">Student developer / Perth</div>
+
+              <div class="visual-card">
+                <span>Profile active</span>
+                <strong>Student developer / Perth</strong>
+              </div>
             </div>
           </div>
 
           <div class="about-copy reveal">
-            <h2>I am focused on building clearer front-end work with better structure.</h2>
             <p>
-              I am a student developer who enjoys building portfolios, landing
-              pages, and interface concepts that feel clean and easy to use. I
-              care a lot about spacing, readable sections, and layouts that work
-              well across different screen sizes.
-            </p>
-            <p>
-              Right now I am using projects like this to improve both my design
-              sense and front-end coding. The goal is not just to make pages
-              look good, but to make them feel organized, balanced, and personal.
+              I enjoy building portfolios, landing pages, and interface
+              concepts that feel polished without becoming overdesigned. I care
+              about readable sections, stronger hierarchy, and layouts that
+              still feel deliberate when they collapse to mobile.
             </p>
 
+            <p>
+              Projects like this are how I practice both design judgment and
+              front-end code. I am trying to make my portfolio feel more
+              personal and more experimental, while also presenting myself like
+              someone ready to join a team and keep learning quickly.
+            </p>
+
+            <div class="about-columns">
+              <article class="about-panel reveal">
+                <span>Approach</span>
+                <strong>Mix experimental composition with readable structure from the start.</strong>
+              </article>
+
+              <article class="about-panel reveal">
+                <span>Priority</span>
+                <strong>Keep the build responsive, usable, and easy to scan on every screen.</strong>
+              </article>
+
+              <article class="about-panel reveal">
+                <span>Professional angle</span>
+                <strong>Present the work like a candidate who can contribute, not just decorate.</strong>
+              </article>
+            </div>
+
             <ul class="about-specs">
-              <li>Design mood: black backgrounds, silver highlights, and stronger contrast.</li>
-              <li>Build focus: responsive sections that still feel intentional on mobile.</li>
-              <li>Goal: turn practice work into a portfolio that feels personal, not generic.</li>
+              <li>Visual direction: bolder composition, expressive type, and color that feels more authored.</li>
+              <li>Build focus: responsive sections that hold their hierarchy instead of flattening on mobile.</li>
+              <li>Career goal: show creative instinct and the reliability needed for internship work.</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section id="skills" class="section skills">
-        <div class="section-label">/ 02 - Skills</div>
-
-        <div class="section-head reveal">
-          <h2 class="section-title">
-            Core skills I use across front-end projects.
-          </h2>
-          <p class="section-intro">
-            A simple overview of the tools and strengths I rely on most.
-          </p>
-        </div>
-
-        <div class="skills-grid">
-          <article class="skill-card skill-html skill-span-wide reveal">
-            <div class="skill-top">
-              <span class="skill-pill">HTML</span>
-              <span class="skill-number">01</span>
-            </div>
-            <h3>Structure and semantics</h3>
-            <p>
-              Accessible markup, sensible page flow, and a strong base for every layout.
-            </p>
-          </article>
-
-          <article class="skill-card skill-css reveal">
-            <div class="skill-top">
-              <span class="skill-pill">CSS</span>
-              <span class="skill-number">02</span>
-            </div>
-            <h3>Style and motion</h3>
-            <p>
-              Layout systems, visual polish, and transitions that feel more intentional.
-            </p>
-          </article>
-
-          <article class="skill-card skill-js reveal">
-            <div class="skill-top">
-              <span class="skill-pill">JavaScript</span>
-              <span class="skill-number">03</span>
-            </div>
-            <h3>Interaction and logic</h3>
-            <p>
-              Dynamic behaviors that add life to the page without making it messy.
-            </p>
-          </article>
-
-          <article class="skill-card skill-react reveal">
-            <div class="skill-top">
-              <span class="skill-pill">React</span>
-              <span class="skill-number">04</span>
-            </div>
-            <h3>Component thinking</h3>
-            <p>
-              Organizing interfaces into reusable parts that can scale with bigger projects.
-            </p>
-          </article>
-
-          <article class="skill-card skill-ui reveal">
-            <div class="skill-top">
-              <span class="skill-pill">Responsive UI</span>
-              <span class="skill-number">05</span>
-            </div>
-            <h3>Layout balance</h3>
-            <p>
-              Making pages feel strong on desktop and still clean on smaller screens.
-            </p>
-          </article>
-
-          <article class="skill-card skill-github skill-span-wide reveal">
-            <div class="skill-top">
-              <span class="skill-pill">GitHub</span>
-              <span class="skill-number">06</span>
-            </div>
-            <h3>Version control and workflow</h3>
-            <p>
-              Keeping projects organized, trackable, and easier to improve over time.
-            </p>
-          </article>
-        </div>
-      </section>
-
       <section id="projects" class="section projects">
-        <div class="section-label">/ 03 - Projects</div>
+        <div class="section-label">/ 03 - Selected Works</div>
 
         <div class="section-head reveal">
-          <h2 class="section-title">Selected practice work and front-end builds.</h2>
+          <h2 class="section-title">Work framed like case studies, with more personality up front and more clarity underneath.</h2>
           <p class="section-intro">
-            These are sample project entries for now and can be replaced with your real work later.
+            Each project card is trying to feel creative at first glance, but
+            still readable enough for recruiters or teams to quickly understand
+            the role, focus, and direction.
           </p>
         </div>
 
@@ -253,49 +262,74 @@
                 <span></span>
                 <span></span>
               </div>
-              <div class="visual-panel">Featured Portfolio Build</div>
+
+              <div class="visual-panel">
+                <span>01 / Rebuild</span>
+                <strong>Portfolio Redesign</strong>
+              </div>
+
+              <div class="feature-map" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </div>
+
             <div class="project-body">
               <div class="project-meta">
-                <span>01 / Featured</span>
-                <span>Responsive Build</span>
+                <span>2026 / Signature Piece</span>
+                <span>Portfolio System</span>
               </div>
-              <h3>Personal Portfolio Redesign</h3>
+
+              <h3>Portfolio Reframe for Internship Applications</h3>
+
               <p>
-                A portfolio rebuild focused on better hierarchy, calmer visuals,
-                and a more personal presentation.
+                A redesign focused on stronger hierarchy, more experimental art
+                direction, and clearer project presentation so the portfolio
+                feels distinctive without becoming hard to read.
               </p>
+
               <div class="project-tags">
+                <span>Case Study</span>
                 <span>Portfolio</span>
-                <span>UI</span>
                 <span>Responsive</span>
+                <span>Recruiter-ready</span>
               </div>
+
+              <ul class="project-points">
+                <li>Uses a more experimental visual identity while keeping the content easy to scan.</li>
+                <li>Frames the work more professionally with stronger hierarchy and clearer section roles.</li>
+                <li>Prepares the portfolio for real links, screenshots, and tighter case-study summaries.</li>
+              </ul>
             </div>
           </article>
 
           <article class="project-card reveal">
             <div class="project-visual visual-stack">
+              <div class="project-index">02 / Concept Build</div>
               <div class="stack-lines" aria-hidden="true">
                 <span></span>
                 <span></span>
                 <span></span>
               </div>
             </div>
+
             <div class="project-body">
               <div class="project-meta">
-                <span>02 / Concept</span>
                 <span>Landing Page</span>
+                <span>Practice</span>
               </div>
-              <h3>Launch Page Practice</h3>
+              <h3>Landing Page Motion Study</h3>
               <p>
-                A front-end exercise used to practice page flow, spacing,
-                and balanced content sections.
+                A page-flow exercise focused on headline pacing, CTA clarity,
+                and transitions that feel sharper without getting noisy.
               </p>
             </div>
           </article>
 
           <article class="project-card reveal">
             <div class="project-visual visual-matrix">
+              <div class="project-index">03 / Interface Study</div>
               <div class="grid-boxes" aria-hidden="true">
                 <span></span>
                 <span></span>
@@ -303,15 +337,16 @@
                 <span></span>
               </div>
             </div>
+
             <div class="project-body">
               <div class="project-meta">
-                <span>03 / Practice</span>
                 <span>Dashboard UI</span>
+                <span>Practice</span>
               </div>
-              <h3>Interface Card System</h3>
+              <h3>Dashboard Layout Study</h3>
               <p>
-                A UI study focused on card layouts, spacing, and clearer
-                information hierarchy.
+                A UI study built to practice card rhythm, grouping, and
+                information hierarchy in a way that still feels calm and usable.
               </p>
             </div>
           </article>
@@ -319,38 +354,153 @@
           <article class="project-card project-strip reveal">
             <div class="project-body">
               <div class="project-meta">
-                <span>04 / Direction</span>
-                <span>Future Build</span>
+                <span>04 / Next Step</span>
+                <span>Case Study Ready</span>
               </div>
-              <h3>Next step: replace placeholders with my real projects and links.</h3>
+              <h3>Next step: swap the sample cards for real projects, links, and tighter case-study summaries.</h3>
               <p>
-                The next step is to swap these placeholders for real projects,
-                screenshots, and links.
+                The visual system now has enough character to stand out, and
+                enough structure to present real work professionally once the
+                placeholders are replaced.
               </p>
             </div>
           </article>
         </div>
       </section>
 
+      <section id="skills" class="section skills">
+        <div class="section-label">/ 04 - Technical Arsenal</div>
+
+        <div class="section-head reveal">
+          <h2 class="section-title">Creative instincts paired with the habits that make junior front-end teammates useful.</h2>
+          <p class="section-intro">
+            This section is less about listing everything I know and more about
+            showing the mix of taste, craft, and work habits I am trying to
+            bring into internship-level projects.
+          </p>
+        </div>
+
+        <div class="skills-board">
+          <article class="skill-card skill-lead reveal">
+            <div class="skill-top">
+              <span class="skill-pill">Front-end</span>
+              <span class="skill-number">01</span>
+            </div>
+            <h3>Interface direction and front-end execution</h3>
+            <p>
+              HTML, CSS, JavaScript, and React used to create layouts that feel
+              cleaner, more readable, and better balanced across devices.
+            </p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-top">
+              <span class="skill-pill">Design focus</span>
+              <span class="skill-number">02</span>
+            </div>
+            <h3>Readable visual identity</h3>
+            <p>
+              Typography, spacing, and color direction that make the interface
+              feel intentional, but still professional enough to support the work.
+            </p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-top">
+              <span class="skill-pill">Responsive UI</span>
+              <span class="skill-number">03</span>
+            </div>
+            <h3>Responsive polish</h3>
+            <p>
+              Designing sections that keep their hierarchy and readability on
+              smaller screens.
+            </p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-top">
+              <span class="skill-pill">Team habits</span>
+              <span class="skill-number">04</span>
+            </div>
+            <h3>Iteration and communication</h3>
+            <p>
+              GitHub, smaller revisions, and clearer project framing so the
+              work is easier to explain and improve.
+            </p>
+          </article>
+
+          <article class="stack-card reveal">
+            <div class="stack-card-head">
+              <span>Tools + habits</span>
+              <span>Studio stack</span>
+            </div>
+
+            <div class="stack-cloud">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>React</span>
+              <span>Responsive UI</span>
+              <span>GitHub</span>
+              <span>Layout Systems</span>
+              <span>Visual Polish</span>
+            </div>
+          </article>
+
+          <article class="ledger-card reveal">
+            <span>Internship fit</span>
+            <strong>Curious, coachable, and already thinking about presentation.</strong>
+            <p>
+              I am practicing not just how to make things look better, but how
+              to structure the work clearly, explain decisions, and keep
+              improving quickly.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section id="contact" class="section contact">
-        <div class="section-label">/ 04 - Contact</div>
+        <div class="section-label">/ 05 - Contact</div>
 
         <div class="contact-shell reveal">
           <div class="contact-copy">
-            <p class="contact-kicker">Contact</p>
-            <h2 class="contact-title">If you want to reach out, you can message me here.</h2>
+            <p class="contact-kicker">Open line</p>
+            <h2 class="contact-title">Open to internships, junior front-end roles, and collaborative learning opportunities.</h2>
             <p>
               I am currently improving my front-end skills through portfolio
-              work, UI practice, and responsive website projects. Feel free to
-              send a message for internships, collaborations, or general inquiries.
+              work, UI exercises, and responsive website projects. If you are
+              looking for someone who cares about both design feel and front-end
+              detail, feel free to reach out.
             </p>
+
+            <div class="contact-data">
+              <article class="contact-data-card">
+                <span>Email</span>
+                <strong>hello@bryl.dev</strong>
+              </article>
+
+              <article class="contact-data-card">
+                <span>Base</span>
+                <strong>Perth, Australia</strong>
+              </article>
+
+              <article class="contact-data-card">
+                <span>Status</span>
+                <strong>Available for internships and growth-focused teams</strong>
+              </article>
+            </div>
 
             <div class="contact-links">
               <a href="mailto:hello@bryl.dev" class="contact-link">
                 <span class="contact-link-label">Email</span>
                 <strong>hello@bryl.dev</strong>
               </a>
-              <a href="https://github.com/" class="contact-link" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/"
+                class="contact-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span class="contact-link-label">GitHub</span>
                 <strong>github.com/yourprofile</strong>
               </a>
@@ -376,6 +526,7 @@
 
               <button type="submit" class="submit-btn">Send message</button>
             </form>
+
             <p id="formMsg" role="status"></p>
             <a href="#home" class="back-top">Back to top</a>
           </div>

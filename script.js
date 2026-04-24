@@ -24,10 +24,10 @@ if (portraitFrame && !reduceMotion.matches) {
     const rect = portraitFrame.getBoundingClientRect();
     const offsetX = (event.clientX - rect.left) / rect.width - 0.5;
     const offsetY = (event.clientY - rect.top) / rect.height - 0.5;
-    const rotateY = offsetX * 7;
-    const rotateX = offsetY * -7;
+    const rotateY = offsetX * 6;
+    const rotateX = offsetY * -6;
     const moveX = offsetX * 10;
-    const moveY = offsetY * 10;
+    const moveY = offsetY * 8;
 
     portraitFrame.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(${moveX}px, ${moveY * -0.3}px, 0)`;
   });
@@ -53,7 +53,7 @@ if (contactForm && formMsg) {
 }
 
 const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-links a");
+const navLinks = document.querySelectorAll("[data-nav-link]");
 
 const navObserver = new IntersectionObserver(
   (entries) => {
@@ -63,13 +63,28 @@ const navObserver = new IntersectionObserver(
       }
 
       navLinks.forEach((link) => link.classList.remove("active"));
-      const activeLink = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-      if (activeLink) {
-        activeLink.classList.add("active");
-      }
+      const activeLinks = document.querySelectorAll(`[data-nav-link][href="#${entry.target.id}"]`);
+      activeLinks.forEach((link) => link.classList.add("active"));
     });
   },
   { rootMargin: "-40% 0px -55% 0px" }
 );
 
 sections.forEach((section) => navObserver.observe(section));
+
+const navToggle = document.querySelector(".nav-toggle");
+const navMenu = document.getElementById("navLinks");
+
+if (navToggle && navMenu) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = navMenu.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  navMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
