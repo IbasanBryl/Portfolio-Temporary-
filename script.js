@@ -43,9 +43,31 @@ const formMsg = document.getElementById("formMsg");
 if (contactForm && formMsg) {
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    formMsg.textContent = "Message sent. I will get back to you soon.";
+
+    const name = document.getElementById("name")?.value.trim();
+    const email = document.getElementById("email")?.value.trim();
+    const message = document.getElementById("message")?.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name || !email || !message) {
+      formMsg.textContent = "Please complete all fields before opening an email draft.";
+      formMsg.style.color = "var(--coral)";
+      return;
+    }
+
+    if (!emailPattern.test(email)) {
+      formMsg.textContent = "Please enter a valid email address.";
+      formMsg.style.color = "var(--coral)";
+      return;
+    }
+
+    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+
+    window.location.href = `mailto:hello@bryl.dev?subject=${subject}&body=${body}`;
+    formMsg.textContent = "Opening your email app with the message ready to send.";
     formMsg.style.color = "var(--mint)";
-    contactForm.reset();
+
     window.setTimeout(() => {
       formMsg.textContent = "";
     }, 5000);

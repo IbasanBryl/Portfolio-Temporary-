@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Bryl Portfolio - a simple front-end portfolio for projects, skills, and contact."
+      content="Ibasan Bryl's front-end portfolio: responsive HTML, CSS, and JavaScript projects built with clear structure, polished UI, and careful interaction details."
     />
     <meta name="theme-color" content="#050505" />
-    <title>Bryl Portfolio</title>
+    <title>Ibasan Bryl | Front-End Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,7 +22,7 @@
       <nav class="nav">
         <a href="#home" class="nav-logo">
           <span class="nav-logo-mark" aria-hidden="true"></span>
-          Bryl Portfolio
+          Ibasan Bryl
         </a>
 
         <button
@@ -30,6 +30,7 @@
           type="button"
           aria-expanded="false"
           aria-controls="navLinks"
+          aria-label="Toggle navigation menu"
         >
           Menu
         </button>
@@ -42,72 +43,47 @@
           <li><a href="#contact" data-nav-link>Contact</a></li>
         </ul>
 
-        <a href="#contact" class="nav-cta">Available</a>
+        <a href="#contact" class="nav-cta">Open to work</a>
       </nav>
     </header>
 
     <main>
       <section id="home" class="section hero">
-        <div class="section-label">/ 01 - Home</div>
+        <div class="section-label">/ 01 - Hero</div>
 
         <div class="hero-shell">
           <div class="hero-copy reveal">
-            <p class="hero-kicker">Bryl / Front-end student developer / Perth</p>
-
-            <h1 class="hero-title">
-              <span>Clean design.</span>
-              <span>Simple build.</span>
-              <em>I make responsive websites with strong visuals and clear structure.</em>
+            <h1 class="hero-title hero-name-title">
+              <span>Ibasan</span>
+              <span>Bryl</span>
             </h1>
-
-            <p class="hero-lead">
-              A front-end portfolio focused on simple layouts, polished UI, and better user experience.
-            </p>
-
-            <div class="hero-actions">
-              <a href="#projects" class="cta-btn">View work</a>
-              <a href="#contact" class="ghost-btn">Contact me</a>
-            </div>
-
-            <div class="hero-band reveal">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-              <span>Responsive UI</span>
-            </div>
           </div>
 
           <aside class="hero-panel reveal">
-            <div class="panel-head">
-              <span>Portfolio</span>
-              <span>2026</span>
-            </div>
-
             <div class="panel-stage">
+              <img
+                src="assets/ibasan-bryl.jpg"
+                alt="Ibasan Bryl mirror self portrait"
+                class="stage-photo"
+              />
+              <img
+                src="assets/waterfall.jpg"
+                alt="Waterfall landscape"
+                class="stage-photo-card"
+              />
               <div class="stage-wash" aria-hidden="true"></div>
               <div class="stage-grid" aria-hidden="true"></div>
               <div class="stage-dial stage-dial-a" aria-hidden="true"></div>
               <div class="stage-dial stage-dial-b" aria-hidden="true"></div>
               <div class="stage-route" aria-hidden="true"></div>
-              <div class="stage-badge" aria-hidden="true">B</div>
-
-              <article class="stage-note stage-note-a">
-                <p>Focus</p>
-                <strong>Responsive front-end design.</strong>
-              </article>
-
-              <article class="stage-note stage-note-b">
-                <p>Goal</p>
-                <strong>Build clean projects and keep improving.</strong>
-              </article>
-
-              <div class="stage-footer">
-                <span>Design</span>
-                <span>Code</span>
-                <span>UI</span>
-              </div>
+              <a href="#projects" class="stage-action">Initialize</a>
             </div>
           </aside>
+
+          <p class="hero-role reveal">
+            <span>Front-end</span>
+            <em>Web Developer</em>
+          </p>
         </div>
       </section>
 
@@ -117,51 +93,55 @@
         <div class="section-head reveal">
           <h2 class="section-title">About me</h2>
           <p class="section-intro">
-            I enjoy turning ideas into clean, responsive web pages.
+            I turn small project briefs into clean, responsive pages with readable structure and deliberate UI details.
           </p>
         </div>
 
         <div class="about-layout">
           <div class="about-visual reveal">
             <div class="visual-frame" id="portraitFrame">
-              <div class="visual-core" aria-hidden="true">
-                <div class="visual-arc visual-arc-a"></div>
-                <div class="visual-arc visual-arc-b"></div>
-                <div class="visual-grid"></div>
-                <div class="visual-monogram">B</div>
-                <div class="visual-marker visual-marker-a"></div>
-                <div class="visual-marker visual-marker-b"></div>
-              </div>
+              <img
+                src="assets/about-ibasan.jpg"
+                alt="Ibasan Bryl sitting outdoors under a thatched umbrella"
+                class="visual-photo"
+              />
+              <div class="visual-grid" aria-hidden="true"></div>
 
               <div class="visual-card">
                 <span>Profile</span>
-                <strong>Student developer / Perth</strong>
+                <strong>Front-end student / Perth</strong>
               </div>
             </div>
           </div>
 
           <div class="about-copy reveal">
             <p>
-              I build simple websites and interface studies while improving my front-end skills.
-              My focus is clean layout, readable sections, and responsive design.
+              I practice front-end development by building complete pages from the ground up:
+              semantic structure first, spacing and typography second, and JavaScript where it improves the experience.
             </p>
 
             <div class="about-columns">
               <article class="about-panel reveal">
                 <span>Design</span>
-                <strong>Clean and modern visuals.</strong>
+                <strong>Typography, spacing, and hierarchy that make content easy to read.</strong>
               </article>
 
               <article class="about-panel reveal">
                 <span>Code</span>
-                <strong>HTML, CSS, and JavaScript.</strong>
+                <strong>Semantic HTML, responsive CSS, and practical JavaScript.</strong>
               </article>
 
               <article class="about-panel reveal">
                 <span>Goal</span>
-                <strong>Internship or junior front-end role.</strong>
+                <strong>Internship or junior front-end role with room to learn.</strong>
               </article>
             </div>
+
+            <ul class="about-specs reveal">
+              <li>Builds semantic sections that are easy to scan, update, and maintain.</li>
+              <li>Uses responsive grids, stable spacing, and clear breakpoints for desktop and mobile.</li>
+              <li>Adds lightweight interactions for navigation, forms, and motion with accessibility in mind.</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -171,7 +151,9 @@
 
         <div class="section-head reveal">
           <h2 class="section-title">Selected work</h2>
-          <p class="section-intro">A few front-end practice projects and layout studies.</p>
+          <p class="section-intro">
+            Practice projects presented with clear goals, responsive layouts, and usable interaction patterns.
+          </p>
         </div>
 
         <div class="projects-layout">
@@ -198,16 +180,26 @@
             <div class="project-body">
               <div class="project-meta">
                 <span>Portfolio</span>
-                <span>Responsive</span>
+                <span>HTML/CSS/JS</span>
               </div>
 
-              <h3>Personal Portfolio</h3>
-              <p>A clean portfolio redesign for showing projects, skills, and contact details.</p>
+              <h3>Personal Portfolio Refresh</h3>
+              <p>
+                A responsive single-page portfolio with fixed navigation, animated reveal states,
+                and structured sections for work, skills, and contact.
+              </p>
+
+              <ul class="project-points">
+                <li>Mobile navigation with active-section highlighting.</li>
+                <li>Responsive grids for projects, skills, and contact details.</li>
+                <li>Reduced-motion support for animation-sensitive visitors.</li>
+              </ul>
 
               <div class="project-tags">
                 <span>HTML</span>
                 <span>CSS</span>
                 <span>JavaScript</span>
+                <span>Responsive</span>
               </div>
             </div>
           </article>
@@ -227,8 +219,11 @@
                 <span>Landing Page</span>
                 <span>Practice</span>
               </div>
-              <h3>Landing Page Study</h3>
-              <p>A simple page focused on layout, spacing, and clear calls to action.</p>
+              <h3>Landing Page System</h3>
+              <p>
+                A compact landing page study built around headline clarity, section rhythm,
+                supporting proof, and a visible call to action.
+              </p>
             </div>
           </article>
 
@@ -249,7 +244,9 @@
                 <span>Practice</span>
               </div>
               <h3>Dashboard Layout</h3>
-              <p>A small interface study for cards, grids, and readable information.</p>
+              <p>
+                A small interface study for card density, grid alignment, and readable information blocks.
+              </p>
             </div>
           </article>
         </div>
@@ -260,7 +257,7 @@
 
         <div class="section-head reveal">
           <h2 class="section-title">Skills</h2>
-          <p class="section-intro">The tools and habits I use for front-end work.</p>
+          <p class="section-intro">Core front-end skills I am practicing and applying in project work.</p>
         </div>
 
         <div class="skills-board">
@@ -269,7 +266,7 @@
               <span class="skill-pill">Front-end</span>
               <span class="skill-number">01</span>
             </div>
-            <h3>HTML, CSS, JavaScript</h3>
+            <h3>Semantic HTML, responsive CSS, vanilla JavaScript</h3>
           </article>
 
           <article class="skill-card reveal">
@@ -277,7 +274,7 @@
               <span class="skill-pill">Design</span>
               <span class="skill-number">02</span>
             </div>
-            <h3>Layout and visual polish</h3>
+            <h3>Typography, spacing, color, and component polish</h3>
           </article>
 
           <article class="skill-card reveal">
@@ -285,7 +282,7 @@
               <span class="skill-pill">Responsive</span>
               <span class="skill-number">03</span>
             </div>
-            <h3>Mobile-friendly pages</h3>
+            <h3>Layouts that adapt across mobile, tablet, and desktop</h3>
           </article>
 
           <article class="stack-card reveal">
@@ -303,6 +300,15 @@
               <span>Responsive UI</span>
             </div>
           </article>
+
+          <article class="ledger-card reveal">
+            <span>Current focus</span>
+            <strong>Turning fundamentals into complete, review-ready builds.</strong>
+            <p>
+              Practicing semantic structure, precise spacing, reusable sections,
+              and small interactions that support the content.
+            </p>
+          </article>
         </div>
       </section>
 
@@ -312,8 +318,11 @@
         <div class="contact-shell reveal">
           <div class="contact-copy">
             <p class="contact-kicker">Contact</p>
-            <h2 class="contact-title">Let us work together.</h2>
-            <p>Open to internships, junior front-end roles, and collaborations.</p>
+            <h2 class="contact-title">Let's build something clear.</h2>
+            <p>
+              Open to internships, junior front-end roles, and small web projects where structure,
+              readability, and careful UI matter.
+            </p>
 
             <div class="contact-data">
               <article class="contact-data-card">
@@ -328,7 +337,7 @@
 
               <article class="contact-data-card">
                 <span>Status</span>
-                <strong>Available</strong>
+                <strong>Open to internships</strong>
               </article>
             </div>
 
@@ -338,7 +347,7 @@
                 <strong>hello@bryl.dev</strong>
               </a>
               <a
-                href="https://github.com/"
+                href="https://github.com/yourprofile"
                 class="contact-link"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -353,20 +362,39 @@
             <form id="contactForm" novalidate>
               <div class="field">
                 <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Your name" required />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  autocomplete="name"
+                  required
+                />
               </div>
 
               <div class="field">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="your@email.com" required />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  autocomplete="email"
+                  required
+                />
               </div>
 
               <div class="field">
                 <label for="message">Message</label>
-                <textarea id="message" placeholder="Your message" required></textarea>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell me what you need built"
+                  required
+                ></textarea>
               </div>
 
-              <button type="submit" class="submit-btn">Send message</button>
+              <button type="submit" class="submit-btn">Open email draft</button>
             </form>
 
             <p id="formMsg" role="status"></p>
