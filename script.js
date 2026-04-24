@@ -64,7 +64,7 @@ if (contactForm && formMsg) {
     const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
 
-    window.location.href = `mailto:hello@bryl.dev?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:ibasanbryl7@gmail.com?subject=${subject}&body=${body}`;
     formMsg.textContent = "Opening your email app with the message ready to send.";
     formMsg.style.color = "var(--mint)";
 

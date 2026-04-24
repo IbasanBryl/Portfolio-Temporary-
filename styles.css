@@ -1460,6 +1460,15 @@ body > * {
   font-size: 1.5rem;
 }
 
+.project-body h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-body h3 a:hover {
+  color: var(--amber);
+}
+
 .project-body p {
   margin: 0;
   font-size: 0.86rem;
@@ -1651,7 +1660,7 @@ body > * {
 
 .contact-data {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 12px;
   margin-top: 24px;
 }
@@ -1680,8 +1689,11 @@ body > * {
 }
 
 .contact-data-card strong {
-  font-size: 0.94rem;
+  display: block;
+  font-size: clamp(0.82rem, 1vw, 0.94rem);
   line-height: 1.48;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .contact-links {
@@ -1714,8 +1726,10 @@ body > * {
 }
 
 .contact-link strong {
+  overflow-wrap: normal;
   font-size: 1rem;
   font-weight: 700;
+  word-break: normal;
 }
 
 .contact-form-wrap {
