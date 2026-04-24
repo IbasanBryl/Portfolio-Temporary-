@@ -44,7 +44,7 @@ if (contactForm && formMsg) {
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
     formMsg.textContent = "Message sent. I will get back to you soon.";
-    formMsg.style.color = "var(--accent)";
+    formMsg.style.color = "var(--mint)";
     contactForm.reset();
     window.setTimeout(() => {
       formMsg.textContent = "";
@@ -74,6 +74,7 @@ sections.forEach((section) => navObserver.observe(section));
 
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.getElementById("navLinks");
+const mobileNav = window.matchMedia("(max-width: 1100px)");
 
 if (navToggle && navMenu) {
   navToggle.addEventListener("click", () => {
@@ -87,4 +88,19 @@ if (navToggle && navMenu) {
       navToggle.setAttribute("aria-expanded", "false");
     });
   });
+
+  const syncNavState = () => {
+    if (!mobileNav.matches) {
+      navMenu.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  };
+
+  syncNavState();
+
+  if (typeof mobileNav.addEventListener === "function") {
+    mobileNav.addEventListener("change", syncNavState);
+  } else if (typeof mobileNav.addListener === "function") {
+    mobileNav.addListener(syncNavState);
+  }
 }
