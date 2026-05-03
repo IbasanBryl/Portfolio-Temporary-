@@ -326,6 +326,7 @@ html[data-theme="light"] .nav-cta {
 .about-layout,
 .projects-layout,
 .skills-board,
+.tech-wall,
 .contact-shell {
   width: var(--page-width);
   max-width: 100%;
@@ -344,6 +345,7 @@ html[data-theme="light"] .nav-cta {
 .hero-strip > *,
 .panel-ledger > *,
 .about-columns > *,
+.tech-grid > *,
 .contact-data > * {
   min-width: 0;
 }
@@ -1891,6 +1893,113 @@ html[data-theme="light"] .visual-frame {
     rgba(255, 255, 255, 0.78);
 }
 
+.tech-wall {
+  position: relative;
+  min-height: 252px;
+  margin-bottom: 18px;
+  padding: clamp(24px, 3vw, 42px);
+  overflow: hidden;
+  border: 1px solid rgba(235, 238, 241, 0.12);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(180deg, rgba(235, 238, 241, 0.055), rgba(235, 238, 241, 0.015)),
+    repeating-linear-gradient(90deg, rgba(235, 238, 241, 0.055) 0 1px, transparent 1px 18px),
+    repeating-linear-gradient(0deg, rgba(235, 238, 241, 0.05) 0 1px, transparent 1px 18px),
+    repeating-linear-gradient(90deg, rgba(235, 238, 241, 0.02) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(0deg, rgba(235, 238, 241, 0.018) 0 1px, transparent 1px 6px),
+    #030404;
+  box-shadow: var(--shadow);
+  isolation: isolate;
+}
+
+.tech-wall::before,
+.tech-wall::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.tech-wall::before {
+  inset: 0;
+  background:
+    radial-gradient(circle at 8% 32%, rgba(247, 247, 244, 0.14), transparent 13%),
+    radial-gradient(circle at 92% 24%, rgba(170, 177, 185, 0.1), transparent 16%),
+    linear-gradient(90deg, rgba(3, 4, 4, 0.9), transparent 18%, transparent 82%, rgba(3, 4, 4, 0.86));
+}
+
+.tech-wall::after {
+  inset: auto 0 0;
+  height: 46%;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.36));
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(84px, 1fr));
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 42px) clamp(24px, 5vw, 86px);
+  min-height: 168px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.tech-logo {
+  position: relative;
+  min-height: 78px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-lg);
+}
+
+.tech-logo::before {
+  content: "";
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  background: rgba(247, 247, 244, 0.06);
+  opacity: 0;
+  transform: scale(0.75);
+  transition:
+    opacity var(--trans),
+    transform var(--trans);
+}
+
+.tech-logo img {
+  position: relative;
+  z-index: 1;
+  width: clamp(40px, 4.4vw, 64px);
+  height: clamp(40px, 4.4vw, 64px);
+  object-fit: contain;
+  filter: grayscale(1) invert(1);
+  opacity: 0.62;
+  transition:
+    opacity var(--trans),
+    transform var(--trans),
+    filter var(--trans);
+}
+
+.tech-logo.featured::before {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.tech-logo.featured img {
+  opacity: 0.78;
+}
+
+.tech-logo:hover::before {
+  opacity: 1;
+  transform: scale(1.14);
+}
+
+.tech-logo:hover img {
+  opacity: 0.94;
+  filter: grayscale(1) invert(1) drop-shadow(0 14px 24px rgba(235, 238, 241, 0.1));
+  transform: translateY(-4px);
+}
+
 .skill-card,
 .stack-card,
 .ledger-card {
@@ -2275,6 +2384,10 @@ form {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .tech-grid {
+    grid-template-columns: repeat(4, minmax(68px, 1fr));
+  }
+
   .project-feature,
   .projects-layout > .project-card:not(.project-strip),
   .project-strip,
@@ -2403,6 +2516,10 @@ form {
   .stage-note {
     width: calc(100% - 44px);
   }
+
+  .tech-grid {
+    grid-template-columns: repeat(4, minmax(62px, 1fr));
+  }
 }
 
 @media (max-width: 620px) {
@@ -2435,6 +2552,27 @@ form {
   .contact-data,
   .proof-grid {
     grid-template-columns: 1fr;
+  }
+
+  .tech-wall {
+    min-height: auto;
+    padding: 22px 14px;
+    margin-bottom: 14px;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(2, minmax(82px, 1fr));
+    gap: 18px 22px;
+    min-height: auto;
+  }
+
+  .tech-logo {
+    min-height: 62px;
+  }
+
+  .tech-logo img {
+    width: 42px;
+    height: 42px;
   }
 
   .section-head {
